@@ -4,7 +4,7 @@
 #Retourner ce montant 
 
 #j'ouvre le file input en lecture depuis mon script
-with open('puzzle_input', 'r') as f:
+with open('day_1_puzzle_input', 'r') as f:
     puzzle_input = f.read()
 
 #je sépare les données par ligne
@@ -37,13 +37,14 @@ for elf in results:
     #je pousse la somme dans un tableau qui contient toutes les sommes
     sum_food.append(all_food)
 
-print(sum_food)
+#je classe mon tableau par ordre de grandeur
+sum_food.sort()
 
-#je compare toutes les sommes de nourriture et je ressors la plus grande
-max_food = 0
-for food in sum_food:
-    if food > max_food:
-        max_food = food 
+#je récupère les trois dernières valeurs 
+top_three = sum_food[-3:]
 
-print (max_food)
-    
+#j'additione les trois valeurs
+total_top_three = 0
+for i in top_three:
+    total_top_three = total_top_three + i
+print(total_top_three)
